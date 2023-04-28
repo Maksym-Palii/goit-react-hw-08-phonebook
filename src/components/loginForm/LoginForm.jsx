@@ -5,10 +5,10 @@ const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const reset = () => {
-    setEmail('');
-    setPassword('');
-  };
+  // const reset = () => {
+  //   setEmail('');
+  //   setPassword('');
+  // };
 
   const handleChangeEmail = evt => {
     setEmail(evt.target.value);
