@@ -4,24 +4,38 @@ border-bottom: 2px solid black;
 background-color: antiquewhite;
 padding: 0 20px;
 }
+.title{
+    color: rgb(255, 0, 0);
+        /* display: inline-block; */
+        padding: 8px 0;
+        text-decoration: none;
+        font-size: 26px;
+        line-height: 1.3;
+}
+
+.title__blue{
+    color: blue;
+}
 
 .nav{
     flex-grow: 2;
 }
 
 .navLink {
+    margin-left: 20px;
     color: black;
     display: inline-block;
     padding: 12px 0;
     text-decoration: none;
     font-size: 22px;
+    font-weight: 500;
     line-height: 1.3;
 
 }
 
-.navLink:not(:first-child){
+/* .navLink:not(:first-child){
     margin-left: 20px;
-}
+} */
 
 
 .navLink:hover {

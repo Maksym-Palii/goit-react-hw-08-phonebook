@@ -13,6 +13,9 @@ const Navigation = () => {
   return (
     <div>
       <header className={css.header}>
+        <h1 className={css.title}>
+          Phone<span className={css.title__blue}>Book</span>
+        </h1>
         <nav className={css.nav}>
           <StyledLink className={css.navLink} to="/register">
             Register
