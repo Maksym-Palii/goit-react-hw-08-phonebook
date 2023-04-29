@@ -1,16 +1,12 @@
 import { useState } from 'react';
 import css from './RegisterForm.module.css';
+import { useDispatch } from 'react-redux';
+import { register } from 'redux/auth/authOperations';
 
 const RegisterForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  // const reset = () => {
-  //   setName('');
-  //   setEmail('');
-  //   setPassword('');
-  // };
 
   const handleChangeName = evt => {
     setName(evt.target.value);
@@ -24,13 +20,30 @@ const RegisterForm = () => {
     setPassword(evt.target.value);
   };
 
+  const reset = () => {
+    setName('');
+    setEmail('');
+    setPassword('');
+  };
+
+  const dispatch = useDispatch();
+
+  const handleSubmit = evt => {
+    evt.preventDefault();
+    dispatch(
+      register({
+        name,
+        email,
+        password,
+      })
+    );
+    reset();
+  };
+
   return (
     <div className={css.container}>
       <h2 className={css.title}>Registration form</h2>
-      <form
-        className={css.form}
-        // onSubmit={handleSubmit}
-      >
+      <form className={css.form} onSubmit={handleSubmit}>
         <label className={css.text}>
           Name
           <input

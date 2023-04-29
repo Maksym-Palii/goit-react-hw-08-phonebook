@@ -5,9 +5,9 @@ import { Filter } from 'components/filter/Filter';
 import { useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchContacts } from 'redux/operations';
-import { getError, getIsLoading } from 'redux/selectors';
-import css from 'pages/contactsPage/Contacts.module.css';
+import { fetchContacts } from 'redux/contacts/operations';
+import { getError, getIsLoading } from 'redux/contacts/selectors';
+import css from './Contacts.module.css';
 
 const Contacts = () => {
   const dispatch = useDispatch();

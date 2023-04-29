@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-hot-toast';
 import css from 'components/contactForm/ContactForm.module.css';
-import { getContacts } from 'redux/selectors';
-import { addContact } from 'redux/operations';
+import { getContacts } from 'redux/contacts/selectors';
+import { addContact } from 'redux/contacts/operations';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
@@ -28,7 +28,7 @@ export const ContactForm = () => {
 
   const contactAdd = {
     name: name,
-    phone: number,
+    number: number,
   };
 
   const contactsStore = useSelector(getContacts);

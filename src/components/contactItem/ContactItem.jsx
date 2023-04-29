@@ -1,12 +1,12 @@
 import css from 'components/contactItem/ContactItem.module.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteContact } from 'redux/operations';
+import { deleteContact, editContact } from 'redux/contacts/operations';
 import {
   getContacts,
   getError,
   getFilterContacts,
   getIsLoading,
-} from 'redux/selectors';
+} from 'redux/contacts/selectors';
 import { RotatingLines } from 'react-loader-spinner';
 
 export const ContactItem = () => {
@@ -27,10 +27,20 @@ export const ContactItem = () => {
   const error = useSelector(getError);
   return (
     <>
-      {renderContacts.map(({ id, name, phone }) => (
+      {renderContacts.map(({ id, name, number }) => (
         <li className={css.item} key={id}>
           <p className={(css.text, css.name)}>{name}:</p>
-          <p className={css.text}>{phone}</p>
+          <p className={css.text}>{number}</p>
+
+          {/* <button
+            className={css.btn}
+            type="button"
+            disabled={isLoading}
+            onClick={() => dispatch(editContact(id))}
+          >
+            {isLoading && !error && <RotatingLines width="12" />}Edit
+          </button> */}
+
           <button
             className={css.btn}
             type="button"

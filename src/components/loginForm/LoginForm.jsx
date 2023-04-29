@@ -1,14 +1,11 @@
 import { useState } from 'react';
 import css from './LoginForm.module.css';
+import { useDispatch } from 'react-redux';
+import { logIn } from 'redux/auth/authOperations';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  // const reset = () => {
-  //   setEmail('');
-  //   setPassword('');
-  // };
 
   const handleChangeEmail = evt => {
     setEmail(evt.target.value);
@@ -18,13 +15,29 @@ const LoginForm = () => {
     setPassword(evt.target.value);
   };
 
+  const reset = () => {
+    setEmail('');
+    setPassword('');
+  };
+
+  const dispatch = useDispatch();
+
+  const handleSubmit = evt => {
+    evt.preventDefault();
+    dispatch(
+      logIn({
+        email,
+        password,
+      })
+    );
+    console.log(logIn());
+    reset();
+  };
+
   return (
     <div className={css.container}>
       <h2 className={css.title}>Sign in</h2>
-      <form
-        className={css.form}
-        // onSubmit={handleSubmit}
-      >
+      <form className={css.form} onSubmit={handleSubmit}>
         <label className={css.text}>
           Еmail address
           <input
