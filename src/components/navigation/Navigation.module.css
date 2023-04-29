@@ -17,6 +17,10 @@ padding: 0 20px;
     color: blue;
 }
 
+.link{
+    text-decoration: none;
+}
+
 .nav{
     flex-grow: 2;
 }

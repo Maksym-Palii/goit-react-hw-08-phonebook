@@ -4,6 +4,7 @@ import { toast } from 'react-hot-toast';
 import css from 'components/contactForm/ContactForm.module.css';
 import { getContacts } from 'redux/contacts/selectors';
 import { addContact } from 'redux/contacts/operations';
+import ReactInputMask from 'react-input-mask';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
@@ -66,7 +67,9 @@ export const ContactForm = () => {
 
       <label className={css.text}>
         Number
-        <input
+        <ReactInputMask
+          mask="+399 (99) 999-99-99"
+          // maskChar=" "
           className={css.input}
           value={number}
           onChange={handleChangeNumber}

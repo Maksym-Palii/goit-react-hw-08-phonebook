@@ -13,6 +13,7 @@ import { selectIsRefreshing } from 'redux/auth/authSelectors';
 import { refreshUser } from 'redux/auth/authOperations';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
+import Home from 'pages/homePage/Home';
 export const App = () => {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectIsRefreshing);
@@ -27,6 +28,7 @@ export const App = () => {
     <div className={css.container}>
       <Routes>
         <Route path="/" element={<Navigation />}>
+          <Route index element={<Home />} />
           <Route
             path="/register"
             element={
