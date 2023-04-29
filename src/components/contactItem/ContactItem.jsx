@@ -1,6 +1,6 @@
 import css from 'components/contactItem/ContactItem.module.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteContact, editContact } from 'redux/contacts/operations';
+import { deleteContact } from 'redux/contacts/operations';
 import {
   getContacts,
   getError,
